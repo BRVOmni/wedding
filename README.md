@@ -48,8 +48,12 @@ cp alexa-bruno-wedding-invite.html /var/www/html/index.html
 ## File structure
 
 ```
-alexa-bruno-wedding-invite.html   ← the entire site, self-contained
-README-deploy.md                  ← this file
+index.html                              ← the live site (self-contained, base64 images + gift registries)
+files/alexa-bruno-wedding-invite.html   ← earlier copy of the invite (no gift registries)
+files/README-deploy.md                  ← copy of this deploy guide
+files.zip                               ← distributable bundle of the earlier invite + deploy guide
+save-the-date/                          ← save-the-date images, PDFs, and generate_pdf.py
+README.md                               ← this file
 ```
 
 All assets (photos, QR code) are **base64-encoded** inside the HTML — no separate image folder needed.
@@ -76,6 +80,25 @@ All text is in plain HTML — search for the relevant string and edit directly.
 | Date | `25 de Junio` |
 | Hero phrase | `Nuestro 25 ayer` |
 | Agency name | `Almacén de Viajes` |
+| Gift registry links | `class="gift-link"` (see [Gift registries](#gift-registries) below) |
+
+---
+
+## Gift registries
+
+The "Listas de regalos" card links to five stores. Edit the `<a class="gift-link">` tags in `index.html` (search for `gift-link`):
+
+| Label | URL |
+|---|---|
+| Olier | https://www.olier.com.py/ |
+| Plaza Hogar | https://www.plazahogar.com.py/ |
+| Living Room | https://www.livingroom.com.py/ |
+| Marketplace | https://marketplace.com.py/Inicio |
+| Gonzalez Gimenez | https://www.gonzalezgimenez.com.py/ |
+
+These currently point to each store's **homepage**. When you have the direct gift-list URLs, paste them into the matching `href` so guests land on your specific list.
+
+> ⚠️ **Don't use URL shorteners here.** Earlier links used `sl1nk.com` / `l1nq.com` shorteners whose codes expired and redirected guests to a generic ad page. Use the full store URL directly.
 
 ---
 
