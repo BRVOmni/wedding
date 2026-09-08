@@ -110,7 +110,7 @@ def page1(c):
     # ── Top band: RESERVA LA FECHA ──
     top_h = 58
     overlay_rect(c, 0, H - top_h, W, top_h, 0.72)
-    draw_text(c, "RESERVA LA FECHA", H - 38, "Helvetica", 12, GOLD)
+    draw_text(c, "RESERV\u00c1 LA FECHA", H - 38, "Helvetica", 12, GOLD)
 
     # ── Middle band: Quote + Names ──
     mid_top = H * 0.53
@@ -161,7 +161,7 @@ def page1(c):
     draw_text(c, "Todos los detalles en nuestra p\u00e1gina", dy, "Helvetica", 9, Color(0.96, 0.93, 0.88, 0.7))
 
     dy -= 24
-    draw_text(c, "11 A\u00d1OS \u00b7 2 HIJOS \u00b7 1 DESTINO", dy, "Helvetica", 9, GOLD)
+    draw_text(c, "11 A\u00d1OS \u00b7 2 HIJOS \u00b7 1 HISTORIA", dy, "Helvetica", 9, GOLD)
 
 
 # ─── PAGE 2 ────────────────────────────────────────────────────────────

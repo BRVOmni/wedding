@@ -7,11 +7,17 @@ No backend, no build step. Plain HTML + CSS + a little vanilla JS.
 
 ---
 
+## Page order
+
+Hero → phrase → intro → date, countdown and calendar → photo collage → Curaçao photo and
+destination (light, sand-coloured block) → travel package and agency → RSVP → gifts →
+song (send-off) → footer.
+
 ## File structure
 
 ```
 index.html                 ← the site (all markup, styles and scripts)
-img/                       ← photos as WebP (hero + 19 collage tiles) and the Spotify code
+img/                       ← photos as WebP (hero, 15 collage tiles, Curaçao) and the Spotify code
 og.jpg                     ← 1200×630 preview image for WhatsApp / Instagram / iMessage links
 favicon-32.png             ← browser tab icon
 favicon-192.png            ← Android home-screen icon
@@ -62,6 +68,7 @@ All text is plain HTML. Search for the string and edit it.
 | Agency contact | `data-w="phone"`, `data-w="email"`, `wa.me/595992404780`, `instagram.com/almacendeviajes` |
 | Hotel name / link | `data-w="hotel"` and the two buttons under it (map + hotel) |
 | Countdown date | `new Date(2027, 5, 25` in the script at the bottom (month is zero-based: 5 = June) |
+| Song | `open.spotify.com/track/...` button in the music section; the printed Spotify code in `img/qr-spotify.jpg` must match |
 | Calendar event | the Google Calendar `href` under the countdown, and `boda-alexa-bruno.ics` |
 | Bank details | `Luna de miel` card; the copy button reads `data-copy="..."` — keep it in sync with the visible number |
 | Hero phrase | `Nuestro 25 ayer` |
@@ -85,11 +92,34 @@ python3 save-the-date/generate_pdf.py
 
 Photos live in `img/` as WebP, sized for their tile (800 px on the long side for
 single tiles, 1200 px for double-width tiles, 1600 px for the hero). To replace one,
-export a WebP at roughly the same size and overwrite the file. Collage tiles are
-numbered in the order they appear in the grid; `hero.webp` is the top photo.
+export a WebP at roughly the same size and overwrite the file. `hero.webp` is the top
+photo; `curacao.webp` is the island photo above the destination block.
+
+The collage shows 15 of the original 19 photos. Four were dropped for being too dark
+or low-resolution (`07`, `12`, `15`, `18` in the original numbering); their originals
+are still in git history (`git show 3dc8c47:index.html`) if you ever want them back.
 
 Every tile is sized by the CSS grid (`.mosaic` / `.c2` / `.r2` / `.h3` / `.full`),
 never by inline heights. Nudge a crop with an inline `object-position` on the `<img>`.
+
+### Year labels on the collage
+
+Each tile has an empty `data-caption=""`. Put text in it and a small label appears
+over the bottom of the photo:
+
+```html
+<div class="mi" data-caption="2016 · Primer viaje"><img src="img/03.webp" ...></div>
+```
+
+Empty captions render nothing, so label only the tiles you want. The photos carry no
+date metadata, so the years have to come from you.
+
+### Island photo credit
+
+`img/curacao.webp` is an aerial of a Curaçao resort beach by Bent Van Aeken on
+Unsplash (free to use under the Unsplash license, credit appreciated but not
+required). Swap it for your own hotel photo whenever you have one: same file name,
+about 1800 × 900 px.
 
 ---
 
