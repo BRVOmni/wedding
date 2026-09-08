@@ -51,7 +51,7 @@ and the Google Calendar link.
 
 | What | Where | Status |
 |---|---|---|
-| **RSVP WhatsApp number** | `index.html`, search `595000000000` (one `wa.me` link with a `TODO` comment above it) | **placeholder — replace with the couple's number** (country code + number, no `+` or spaces) |
+| RSVP WhatsApp number | `index.html`, search `wa.me/595981210927` (Bruno's number) | done |
 | Direct gift-list URLs | `index.html`, search `class="gift-link"` | homepages for now |
 
 > Don't use URL shorteners for the gift links. Earlier `sl1nk.com` / `l1nq.com` codes expired and sent guests to an ad page.
